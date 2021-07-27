@@ -15,12 +15,23 @@
    <!-- include A-Frame obviously -->
 
 <body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs>
-    <!-- create your content here. just a box for now -->
-    <a-box position='0 0.5 0' material='opacity: 0.5;' color='pink'></a-box>
-    <!-- define a camera which will move according to the marker position -->
-    <a-marker-camera preset='hiro'></a-marker-camera>
-  </a-scene>
+  <a-scene embedded vr-mode-ui="enabled: false;" arjs="debugUIEnabled: false;">
+
+    <a-assets>
+        <a-asset-item id="tree" src="../assets/VaseYellow.gltf"></a-asset-item>
+	</a-assets>
+    
+    <a-marker type="pattern" url="../../data/hiro.patt">
+        <a-entity   position="0 0 0" 
+                    rotation="-80 0 0"
+                    scale="0.05 0.05 0.05"
+                    gltf-model="#tree" >
+        </a-entity>
+    </a-marker>
+    
+    <a-entity camera position="0 0 0"></a-entity>
+    
+</a-scene>
 </body>
 </html>
 </body>

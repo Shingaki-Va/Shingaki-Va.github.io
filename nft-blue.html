@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Aframe-Proyect</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <link rel="stylesheet" href="./css/ar.css">
+
+</head>
+
+
+<body>   
+
+
+  <!-- minimal loader shown until image descriptors are loaded -->
+  <div class="arjs-loader">
+    <div>Loading, please wait...</div>
+  </div>
+
+  <div class="scene">
+  <a-scene 
+     
+    vr-mode-ui="enabled: false;"
+    renderer="logarithmicDepthBuffer: true;"
+
+  >
+      <!-- embedded
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;" -->
+    <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
+    <a-nft
+      type="nft"
+      url="/nft/nft"
+      smooth="true"
+      smoothCount="10"
+      smoothTolerance=".01"
+      smoothThreshold="5"
+    >
+      <!-- look-at="[camera]" -->
+      <a-entity      
+        treeman      
+        id="tree"
+        gltf-model="./ar-page/assets/VaseYellow.gltf"
+        scale="30 10 30"
+        position="250 0 0"
+        rotation="-80 0 0"
+        opacity="5"
+      >
+      <!-- scale="10 5 10" -->
+      </a-entity>
+      
+      
+    
+    </a-nft>
+    <a-entity camera zoom="1" fov="60"></a-entity>
+  </a-scene>
+</div>
+
+
+</script>
+</body>
